@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Loader</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f2f2f2;
+        margin: 0;
+    }
+
+    #container {
+        align-items: center; /* Vertical centering */
+        background-color: white;
+        width: 20%;  /* updated to 95% */
+        height: 40%; /* updated to 85% */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    #botDashboard {
+        flex-grow: 1;
+        resize: none;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        width: 80%;
+    }
+
+    #commandInput {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    #navbar {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 5%;
+    transition: top 0.3s;
+}
+
+#navbar:hover {
+    top: 0;
+    color: #ddd;
+}
+
+#navbar a {
+    text-decoration: none;  /* Remove underline */
+    color: inherit;         /* Use parent's text color */
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    cursor: pointer;
+}
+
+#logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+    .inputFieldContainer {
+    display: flex;
+    justify-content: space-between; /* spreads the input fields out */
+    flex-wrap: wrap; /* allows wrapping in case of smaller screens */
+    gap: 10px; /* gap between inputs */
+}
+    .inputField {
+    width: 100%; /* updated to 60% of its original 80% width */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+        .active {
+            background-color: #555;
+            color: white;
+        }
+
+        #loadBotButton {
+    background-color: green;
+    color: white;
+    padding: 10px 20px; /* 10px vertical, 20px horizontal */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Adjust as needed */
+    transition: 0.3s; /* Smooth transition for hover effect */
+    margin-top: 20px; /* Space above the button */
+}
+
+#loadBotButton:hover {
+    background-color: darkgreen; /* Darker shade when hovered */
+}
+#inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will center its children horizontally */
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <img id="logo" src="/assets/meta.png" alt="Logo">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="load_new_bot.html">Load New Bot</a></li>
+            <li><a href="master_list.html">Master List</a></li>
+            <li><a href="chests.html">Chests</a></li>
+            <li><a href="portals.html">Portals</a></li>
+            <li><a href="credits.html">Credits</a></li>
+        </ul>
+    </div>
+
+    <div id="container">
+        <h1>Bot Loader</h1>
+        
+    
+        <div id="inputContainer">
+            <input class="inputField" id="hostInput" type="text" placeholder="Host">
+            <input class="inputField" id="portInput" type="text" placeholder="Port">
+            <input class="inputField" id="ownerInput" type="text" placeholder="Owner">
+            <input class="inputField" id="botNameInput" type="text" placeholder="Bot Name">
+            <button id="loadBotButton">Load Bot</button>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/load_new_bot/script.js"></script>
+</body>
+
+</html>

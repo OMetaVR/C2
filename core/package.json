@@ -1,0 +1,28 @@
+{
+  "name": "my-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.18",
+    "@types/node": "^20.8.2",
+    "@types/socket.io": "^3.0.2",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "minecraft-data": "^3.46.1",
+    "mineflayer": "^4.14.0",
+    "mineflayer-armor-manager": "^2.0.1",
+    "mineflayer-pathfinder": "^2.4.5",
+    "mineflayer-web-inventory": "^1.8.4",
+    "prismarine-viewer": "^1.25.0",
+    "socket.io": "^4.7.2",
+    "typescript": "^5.2.2",
+    "vec3": "^0.1.8"
+  }
+}

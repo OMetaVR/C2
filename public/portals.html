@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load New Bot</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f2f2f2;
+        margin: 0;
+    }
+
+    #container {
+        background-color: white;
+        width: 95%;  /* updated to 95% */
+        height: 85%; /* updated to 85% */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    #botDashboard {
+        flex-grow: 1;
+        resize: none;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        width: 80%;
+    }
+
+    #commandInput {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    /* Navbar Styles */
+    #navbar {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 5%;
+    transition: top 0.3s;
+}
+
+#navbar:hover {
+    top: 0;
+    color: #ddd;
+}
+
+#navbar a {
+    text-decoration: none;  /* Remove underline */
+    color: inherit;         /* Use parent's text color */
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    cursor: pointer;
+}
+
+#logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+    <div id="navbar">
+        <img id="logo" src="/assets/meta.png" alt="Logo">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="load_new_bot.html">Load New Bot</a></li>
+            <li><a href="master_list.html">Master List</a></li>
+            <li><a href="chests.html">Chests</a></li>
+            <li><a href="portals.html">Portals</a></li>
+            <li><a href="credits.html">Credits</a></li>
+        </ul>
+    </div>
+    <div id="container">
+        <h1>Dashboard</h1>
+        <textarea id="botDashboard" rows="20" readonly></textarea>
+        <input type="text" id="commandInput" placeholder="Enter bot command...">
+    </div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/portals/script.js"></script>
+</body>
+
+</html>

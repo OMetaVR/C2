@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+
+        #container {
+            background-color: white;
+            width: 95%;
+            height: 85%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        #botDashboard {
+            flex-grow: 1;
+            resize: none;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 80%;
+        }
+
+        #commandInput {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #navbar {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 5%;
+    transition: top 0.3s;
+}
+
+#navbar:hover {
+    top: 0;
+    color: #ddd;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    cursor: pointer;
+}
+
+#logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+        /* Bot details styles */
+        .botEntry {
+    background-color: #eee;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.healthBar, .hungerBar {
+    height: 20px;
+    background-color: red;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.hungerBar {
+    background-color: orange;
+}
+
+#botControls {
+    background-color: white;
+    width: 95%;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#botControlPanel {
+    display: flex;
+    justify-content: space-between;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    min-height: 200px;
+} container
+
+#stopBotBtn {
+    background-color: #f44336 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    transition: background-color 0.3s !important;
+}
+
+#stopBotBtn:hover {
+    background-color: #e53935 !important;
+}
+
+input[type="checkbox"] {
+    margin: 10px;
+}
+
+/* Dropdown styles */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Coordinate box styles */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    max-width: 100px;
+}
+
+/* Food input styles */
+#foodInput {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    max-width: 900px;
+}
+
+/* Sync button styles */
+#syncFoodBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#syncFoodBtn:hover {
+    background-color: #45a049;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar">
+        <img id="logo" src="/assets/meta.png" alt="Logo">
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="load_new_bot.html">Load New Bot</a></li>
+            <li><a href="master_list.html">Master List</a></li>
+            <li><a href="chests.html">Chests</a></li>
+            <li><a href="portals.html">Portals</a></li>
+            <li><a href="credits.html">Credits</a></li>
+        </ul>
+    </div>
+
+    <div id="container">
+        <h1>Dashboard</h1>
+        <!-- Console and Bot Details -->
+        <div style="display: flex; gap: 3%;">
+            <textarea id="botDashboard" rows="10" readonly style="width: 60%;"></textarea>
+
+            <!-- Bot Stats and List -->
+            <div style="flex: 1; max-width: 35%; box-sizing: border-box;">
+                <p><strong>Bots Online:</strong> <span id="botsOnline">0</span></p>
+                <!-- Bots List -->
+                <div id="botList" style="overflow-y: auto; max-height: 300px;">
+                    <!-- Removed the example bot entry, as bot entries are added dynamically by the frontend JS -->
+                </div>
+            </div>
+        </div>
+
+        <div id="overlay" style="position: absolute; display: none; background: rgba(255,255,255,0.8); width: 80%; height: 35px; line-height: 35px; text-align: center; border-radius: 5px; z-index: 10;">
+            Select a bot to enter commands
+        </div>
+
+        <input type="text" id="commandInput" placeholder="Enter bot command...">
+    </div>
+
+    <div id="botControls" style="display: none;">
+        <button id="stopBotBtn">Stop Selected Bot</button>
+    </div>
+
+</body>
+</html>

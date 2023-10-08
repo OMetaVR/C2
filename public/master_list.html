@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load New Bot</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f2f2f2;
+        margin: 0;
+    }
+
+    #container {
+        background-color: white;
+        width: 95%;  /* updated to 95% */
+        height: 85%; /* updated to 85% */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    #nameList {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+    overflow-y: auto; /* for scrolling if the list becomes too long */
+}
+.nameItem {
+    padding: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.nameItem:hover {
+    background-color: #e6e6e6;
+}
+.nameItem.selected {
+    background-color: #b5a7f7;
+}
+
+#masterNameInput {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+#addNameBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+#removeNameBtn {
+    background-color: #F44336;
+    color: white;
+}
+
+#controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    /* Navbar Styles */
+    #navbar {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 5%;
+    transition: top 0.3s;
+}
+
+#navbar:hover {
+    top: 0;
+    color: #ddd;
+}
+
+#navbar a {
+    text-decoration: none;  /* Remove underline */
+    color: inherit;         /* Use parent's text color */
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    cursor: pointer;
+}
+
+#logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+    <div id="navbar">
+        <img id="logo" src="/assets/meta.png" alt="Logo">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="load_new_bot.html">Load New Bot</a></li>
+            <li><a href="master_list.html">Master List</a></li>
+            <li><a href="chests.html">Chests</a></li>
+            <li><a href="portals.html">Portals</a></li>
+            <li><a href="credits.html">Credits</a></li>
+        </ul>
+    </div>
+
+    <div id="container">
+        <h1>Dashboard</h1>
+        <div id="nameList"></div>
+        <div id="controls">
+        <input type="text" id="masterNameInput" placeholder="Enter master name...">
+<button id="addNameBtn">Add Name</button>
+<button id="removeNameBtn">Remove Name</button>
+</div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/master_list/script.js"></script>
+</body>
+
+</html>
