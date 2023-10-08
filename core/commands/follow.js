@@ -14,7 +14,7 @@ class Follow{
         const player = bot.players[username];
 
         if(!player){
-            //Send player not found error on console
+            //Send player not found error on console.
             return;
         }
 
