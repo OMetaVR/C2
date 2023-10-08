@@ -1,6 +1,6 @@
-const mineflayer = require('mineflayer');
 const fs = require('fs');
 const path = require('path');
+const mineflayer = require('mineflayer');
 
 module.exports = (io, config, callbacks) => {
     const botOptions = {
