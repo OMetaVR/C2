@@ -1,11 +1,11 @@
-const express = require('express');
-const http = require('http');
-const socketIo = require('socket.io');
-const path = require('path');
-const bodyParser = require('body-parser');
-const app = express();
-const { exec } = require('child_process');
 const os = require('os');
+const app = express();
+const path = require('path');
+const http = require('http');
+const express = require('express');
+const socketIo = require('socket.io');
+const bodyParser = require('body-parser');
+const { exec } = require('child_process');
 
 app.use(express.json()); // IMPORTANT DO NOT DELETE AGAIN
 app.use(express.urlencoded({ extended: true }));
