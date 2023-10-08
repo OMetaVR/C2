@@ -1,5 +1,5 @@
-const os = require('os');
 const app = express();
+const os = require('os');
 const path = require('path');
 const http = require('http');
 const express = require('express');
