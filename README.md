@@ -46,7 +46,7 @@ C2 is designed to be user-friendly and intuitive. Everything you need is in the 
 
 Contributions are welcome and greatly appreciated! If you have ideas for new features, improvements, or bug fixes, feel free to fork the repository and create a pull request. Together, we can make C2 even better!
 
-Please refer to the `contributing.md` file for guidelines on how to contribute effectively.
+To learn more about how you can contribute to the project, please refer to our [Contributing Guidelines](contributing.md).
 
 ## License:
 
