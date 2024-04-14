@@ -72,6 +72,10 @@ module.exports = (io, config, callbacks) => {
         }
     });
 
+const path = require('path');
+
+
+
     bot.on('error', (err) => {
         console.error("Bot encountered an error:", err);
         callbacks.onBotOffline();
