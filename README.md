@@ -50,4 +50,4 @@ To learn more about how you can contribute to the project, please refer to our [
 
 ## License:
 
-This project is licensed under the MIT License. For more information, see the [License.md](license.md) file in the repository.
+This project is licensed under the MIT License. For more information, see the [License.md](License.md) file in the repository.
