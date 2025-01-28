@@ -2,6 +2,8 @@
 
 **C2** is a powerful and versatile Minecraft bot that revolutionizes the way you play the game. With its advanced features and capabilities, C2 can automate tedious tasks, improve your gameplay experience, and even perform complex jobs, all while you focus on the aspects of the game you love the most.
 
+# ABANDONED PROJECT AS OF 1/28/2025!!!
+
 ## Features at a Glance:
 
 - **Infinite Bots:** Load and manage multiple bots simultaneously.
